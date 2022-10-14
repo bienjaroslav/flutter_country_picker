@@ -55,7 +55,7 @@ class CountryLocalizations {
 
   /// The localized country name for the given country code.
   String? countryName({required BuildContext context, required String countryCode}) {
-    return CountryNames.of(context).nameOf(countryCode);
+    return CountryNames.of(context)!.nameOf(countryCode);
     // switch (locale.languageCode) {
     //   case 'zh':
     //     switch (locale.scriptCode) {
@@ -116,29 +116,30 @@ class _CountryLocalizationsDelegate
 
   @override
   bool isSupported(Locale locale) {
-    return [
-      'en',
-      'ar',
-      'ku',
-      'zh',
-      'el',
-      'es',
-      'et',
-      'pl',
-      'pt',
-      'nb',
-      'nn',
-      'ru',
-      'uk',
-      'hi',
-      'ne',
-      'tr',
-      'hr',
-      'fr',
-      'de',
-      'lt',
-      'lv',
-    ].contains(locale.languageCode);
+    return true;
+    // return [
+    //   'en',
+    //   'ar',
+    //   'ku',
+    //   'zh',
+    //   'el',
+    //   'es',
+    //   'et',
+    //   'pl',
+    //   'pt',
+    //   'nb',
+    //   'nn',
+    //   'ru',
+    //   'uk',
+    //   'hi',
+    //   'ne',
+    //   'tr',
+    //   'hr',
+    //   'fr',
+    //   'de',
+    //   'lt',
+    //   'lv',
+    // ].contains(locale.languageCode);
   }
 
   @override

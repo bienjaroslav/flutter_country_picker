@@ -57,7 +57,7 @@ class Country {
 
   String? getTranslatedName(BuildContext context) {
     return CountryLocalizations.of(context)
-        ?.countryName(countryCode: countryCode);
+        ?.countryName(context: context, countryCode: countryCode);
   }
 
   Country({
@@ -120,7 +120,7 @@ class Country {
     return data;
   }
 
-  bool startsWith(String query, CountryLocalizations? localizations) {
+  bool startsWith(String query, CountryLocalizations? localizations, BuildContext context) {
     String _query = query;
     if (query.startsWith("+")) {
       _query = query.replaceAll("+", "").trim();
@@ -129,7 +129,7 @@ class Country {
         name.toLowerCase().startsWith(_query.toLowerCase()) ||
         countryCode.toLowerCase().startsWith(_query.toLowerCase()) ||
         (localizations
-                ?.countryName(countryCode: countryCode)
+                ?.countryName(context: context, countryCode: countryCode)
                 ?.toLowerCase()
                 .startsWith(_query.toLowerCase()) ??
             false);
