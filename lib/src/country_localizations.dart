@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_localized_countries/flutter_localized_countries.dart';
+
 import 'res/strings/ar.dart';
 import 'res/strings/cn.dart';
 import 'res/strings/de.dart';
@@ -49,61 +51,62 @@ class CountryLocalizations {
   /// A [LocalizationsDelegate] that uses [_CountryLocalizationsDelegate.load]
   /// to create an instance of this class.
   static const LocalizationsDelegate<CountryLocalizations> delegate =
-      _CountryLocalizationsDelegate();
+  _CountryLocalizationsDelegate();
 
   /// The localized country name for the given country code.
-  String? countryName({required String countryCode}) {
-    switch (locale.languageCode) {
-      case 'zh':
-        switch (locale.scriptCode) {
-          case 'Hant':
-            return tw[countryCode];
-          case 'Hans':
-          default:
-            return cn[countryCode];
-        }
-      case 'el':
-        return gr[countryCode];
-      case 'es':
-        return es[countryCode];
-      case 'et':
-        return et[countryCode];
-      case 'pt':
-        return pt[countryCode];
-      case 'nb':
-        return nb[countryCode];
-      case 'nn':
-        return nn[countryCode];
-      case 'uk':
-        return uk[countryCode];
-      case 'pl':
-        return pl[countryCode];
-      case 'tr':
-        return tr[countryCode];
-      case 'ru':
-        return ru[countryCode];
-      case 'hi':
-      case 'ne':
-        return np[countryCode];
-      case 'ar':
-        return ar[countryCode];
-      case 'ku':
-        return ku[countryCode];
-      case 'hr':
-        return hr[countryCode];
-      case 'fr':
-        return fr[countryCode];
-      case 'de':
-        return de[countryCode];
-      case 'lv':
-        return lv[countryCode];
-      case 'lt':
-        return lt[countryCode];
-
-      case 'en':
-      default:
-        return en[countryCode];
-    }
+  String? countryName({required BuildContext context, required String countryCode}) {
+    return CountryNames.of(context).nameOf(countryCode);
+    // switch (locale.languageCode) {
+    //   case 'zh':
+    //     switch (locale.scriptCode) {
+    //       case 'Hant':
+    //         return tw[countryCode];
+    //       case 'Hans':
+    //       default:
+    //         return cn[countryCode];
+    //     }
+    //   case 'el':
+    //     return gr[countryCode];
+    //   case 'es':
+    //     return es[countryCode];
+    //   case 'et':
+    //     return et[countryCode];
+    //   case 'pt':
+    //     return pt[countryCode];
+    //   case 'nb':
+    //     return nb[countryCode];
+    //   case 'nn':
+    //     return nn[countryCode];
+    //   case 'uk':
+    //     return uk[countryCode];
+    //   case 'pl':
+    //     return pl[countryCode];
+    //   case 'tr':
+    //     return tr[countryCode];
+    //   case 'ru':
+    //     return ru[countryCode];
+    //   case 'hi':
+    //   case 'ne':
+    //     return np[countryCode];
+    //   case 'ar':
+    //     return ar[countryCode];
+    //   case 'ku':
+    //     return ku[countryCode];
+    //   case 'hr':
+    //     return hr[countryCode];
+    //   case 'fr':
+    //     return fr[countryCode];
+    //   case 'de':
+    //     return de[countryCode];
+    //   case 'lv':
+    //     return lv[countryCode];
+    //   case 'lt':
+    //     return lt[countryCode];
+    //
+    //   case 'en':
+    //   default:
+    //     return en[countryCode];
+    // }
   }
 }
 

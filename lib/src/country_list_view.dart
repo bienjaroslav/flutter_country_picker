@@ -51,9 +51,9 @@ class CountryListView extends StatefulWidget {
     this.searchAutofocus = false,
     this.showWorldWide = false,
   })  : assert(
-          exclude == null || countryFilter == null,
-          'Cannot provide both exclude and countryFilter',
-        ),
+  exclude == null || countryFilter == null,
+  'Cannot provide both exclude and countryFilter',
+  ),
         super(key: key);
 
   @override
@@ -91,13 +91,13 @@ class _CountryListViewState extends State<CountryListView> {
 
     if (widget.exclude != null) {
       _countryList.removeWhere(
-        (element) => widget.exclude!.contains(element.countryCode),
+            (element) => widget.exclude!.contains(element.countryCode),
       );
     }
 
     if (widget.countryFilter != null) {
       _countryList.removeWhere(
-        (element) => !widget.countryFilter!.contains(element.countryCode),
+            (element) => !widget.countryFilter!.contains(element.countryCode),
       );
     }
 
@@ -113,8 +113,8 @@ class _CountryListViewState extends State<CountryListView> {
   @override
   Widget build(BuildContext context) {
     final String searchLabel =
-        CountryLocalizations.of(context)?.countryName(countryCode: 'search') ??
-            'Search';
+    // CountryLocalizations.of(context)?.countryName(countryCode: 'search') ??
+        'Search';
 
     return Column(
       children: <Widget>[
@@ -203,8 +203,8 @@ class _CountryListViewState extends State<CountryListView> {
               Expanded(
                 child: Text(
                   CountryLocalizations.of(context)
-                          ?.countryName(countryCode: country.countryCode)
-                          ?.replaceAll(RegExp(r"\s+"), " ") ??
+                      ?.countryName(countryCode: country.countryCode)
+                      ?.replaceAll(RegExp(r"\s+"), " ") ??
                       country.name,
                   style: _textStyle,
                 ),
@@ -235,7 +235,7 @@ class _CountryListViewState extends State<CountryListView> {
   void _filterSearchResults(String query) {
     List<Country> _searchResult = <Country>[];
     final CountryLocalizations? localizations =
-        CountryLocalizations.of(context);
+    CountryLocalizations.of(context);
 
     if (query.isEmpty) {
       _searchResult.addAll(_countryList);

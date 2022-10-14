@@ -13,6 +13,8 @@ dependencies:
   flutter:
     sdk: flutter
   collection: ^1.15.0
+  flutter_localized_countries:
+    git: https://github.com/nickolas-pohilets/flutter-localized-countries.git
 
 flutter:
 
